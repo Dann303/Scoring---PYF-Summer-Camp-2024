@@ -22,6 +22,10 @@ app.post('/points', (req, res) => {
     res.status(200).send()
 })    
 
+io.on('connection', socket => {
+    socket.emit('startPoints')
+})
+
 server.listen(port, () => {
     console.log(`Server is up on port ${port}!`)
 })
