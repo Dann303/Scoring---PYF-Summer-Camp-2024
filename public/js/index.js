@@ -6,8 +6,6 @@ const boardWidth = 1260
 
 socket.on('updateBoard', data => {
     const { teamNumberChanged, newPoints } = data
-    console.log(teamNumberChanged)
-    console.log(newPoints)
     updateTeamPoints(teamNumberChanged, newPoints)
 })
 

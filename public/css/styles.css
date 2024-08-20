@@ -10,7 +10,6 @@ body {
     /* padding: 80px 15px 40px 15px; */
     height: 90vh;
     width: auto;
-    background-color: red;
 
     display: flex;
     flex-direction: column;
