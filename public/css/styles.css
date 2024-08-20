@@ -1,117 +1,177 @@
 body {
     background-color: #333744;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#everything {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 8%;
+    /* flex-wrap: wrap; */
+}
+
+#namesContainer {
+    /* set up margin for position (to align with team lanes) */
+    margin: 7rem 0 5.5rem 1.5rem;
+
+    /* flex so that it takes the whole space */
+    display: flex;
 }
 
 #names {
-    position: relative;
-    left: 10px;
+    /* fill up the whole space */
+    flex: 1;
 
-    /* background: linear-gradient(#a7863f, #a98b22);
-    box-shadow: 1px 1px 10px black;
-    border-radius: 10px; */
-
-    width: 120px;
-    margin: 112px 0 90px;
-
+    /* for the team name and points to be evenly distributed on top of each other next to the lanes */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .teamProps {
-    border-radius: 10px;
+    /* make all elements ad ba3d fel 7agm using flex: 1; w ta7t ba3d */
     display: flex;
     flex-direction: column;
+    flex: 1;
 
+    /* shakl el box */
     background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 1px 1px 10px #705C37;
+    border-radius: 0.5rem;
 
-    padding: 5px;
-    margin: 10px 0;
+    /* padding and margin for names and scores boxes */
+    padding: 0.2rem;
+    margin: 0.7rem 0;
 
+    /* align team names and scores inside their boxes */
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .teamProps h1,
 .teamProps h3 {
-    margin: 0;
+    margin: 0.1rem;
+    font-size: 1rem;
 }
 
 .teamProps h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 #container {
+    /* take up remaining space */
+    flex-grow: 1;
+
+    /* 3ashan el numbers el gowa yetaba2o 3aleih */
     position: relative;
 
-    margin: 2%;
-    /* padding: 5% 2% 3% 2%; */
-    /* padding: 80px 15px 40px 15px; */
+    /* height and margins for the big container */
+    margin: 1.5rem;
     height: 90vh;
-    width: auto;
 
+    /* nekhalih flex 3shan el numbers wel lanes yeb2o ta7t ba3d */
     display: flex;
     flex-direction: column;
 
+    /* add el track image w zabat-ha w stretch */
     background-image: url(../img/track-field.jpeg);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
-    border-radius: 30px;
+    /* extra fancy stuff 3shan yeb2a more visible */
+    border-radius: 2rem;
     border: 1px solid black;
     box-shadow: 1px 1px 20px black;
 }
 
+#numbersContainer {
+    /* numbers take ~11.111% height */
+    flex: 1;
+
+    /* make the numbers be relative to this container */
+    position: relative;
+
+    /* occupy 10% of the container (top part) and the full width */
+    height: 10%;
+    width: 100%;
+
+    /* align numbers in this container vertically in the middle */
+    display: flex;
+    justify-content: center;
+}
+
 #numbers {
-    left: -110px;
-    top: 10px;
+    /* take up as much width as you can basically */
+    width: 100%;
 
-    position: absolute;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    height: 40px;
-    width: 90%;
-    margin: 0 10%;
+    /* adjust position and set up a top,bottom margin */
+    margin: 0.8rem 5.2rem 0.8rem 2.2rem;
 
+    /* make all number spheres equally distributed along the track */
     display: flex;
     justify-content: space-between;
 }
 
 #numbers div {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 0 5px;
+    /* make the spheres the same size if possible, while maintaining an automatically changing gap */
+    flex-basis: calc((100% / 10) - 4rem);
 
+    /* allign the numbers text vertically in the middle */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    /* text options */
+    font-weight: bold;
+    font-size: 1.6rem;
+    padding: 0.5rem 0.3rem;
+
+    /* sphere's options */
     border: 1px solid black;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     box-shadow: 1px 1px 20px black;
 }
 
+#lanesFinishLineContainer {
+    /* rest takes the remaining 90% of height*/
+    flex: 8;
+
+    /* flex for the lanes and finish line to be after each other */
+    display: flex;
+
+    /* height adjusted for the red part in the track and margin set accordingly */
+    margin: 0.6rem 1rem 3.6rem 1rem;
+}
+
 #lanes {
+    /* teams inside the lanes should be displayed flex, each with equal distance to the one after it */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    /* background-color: aqua; */
-
-    height: 92%;
-    margin: 82px 0 0 15px;
+    justify-content: space-around;
+    flex: 1;
 }
 
 .team {
-    height: 80px;
-    width: 80px;
+    /* size of team icon */
+    height: 5rem;
+    width: 5rem;
 
+    /* gap between teams */
+    /* margin: 0.4rem 0; */
+
+    /* for the translateX, probably */
     position: relative;
-    /* box-shadow: 2px 2px 15px black; */
-    border-radius: 20%;
-    /* border-radius: 50%; */
-    /* background-color: blue; */
 
-    margin: 5px 0;
+    /* aesthetics? */
+    border-radius: 20%;
+
+    /* keep it aside law 3oztohom */
+    /* box-shadow: 2px 2px 15px black; */
+    /* border-radius: 50%; */
 }
 
 #team-1 {
@@ -159,8 +219,129 @@ body {
 }
 
 #finish-line {
-    height: 93%;
     border: white dashed 1px;
     width: 0px;
-    margin: 78px 140px 15px auto;
+
+    /* position at the end kda kda 3shan el lanes wa5da flex: 1; setting a margin-right makes the gap at the right after the finish line */
+    margin-right: 6rem;
+}
+
+
+@media (max-width: 1200px) {
+    #everything {
+        /* wrap up the names and the board */
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #container {
+        /* high flex basis to force wrapping the names with the board */
+        flex-basis: 1200px;
+    }
+
+    #namesContainer {
+        margin: 2rem;
+        width: 100%;
+    }
+
+    #names {
+        /* fill up next to each other and then wrap if needed */
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        /* items should be distributed with space around them */
+        justify-content: space-around;
+    }
+
+    .teamProps {
+        /* fill up the remaining space */
+        flex: 1;
+
+        /* if width takes less than 5rem wrap to new line */
+        flex-basis: 5rem;
+
+        /* gap between other items and container edge */
+        margin: 1rem;
+    }
+
+    #lanesFinishLineContainer {
+        /* height adjusted for the red part in the track and margin set accordingly */
+        margin: 0.6rem 1rem 3.8rem 1rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .team {
+        /* size of team icon */
+        height: 6rem;
+        width: 6rem;
+    }
+
+    #lanesFinishLineContainer {
+        /* height adjusted for the red part in the track and margin set accordingly */
+        margin: 0.8rem 1rem 4.3rem 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #numbers {
+        margin: 2rem 5.2rem 2rem 2.2rem;
+    }
+
+    #numbers div {
+        font-size: 1rem;
+    }
+
+    #finish-line {
+        margin-right: 5.5rem;
+    }
+
+    .team {
+        /* size of team icon */
+        height: 7rem;
+        width: 7rem;
+    }
+
+    #lanesFinishLineContainer {
+        /* height adjusted for the red part in the track and margin set accordingly */
+        margin: 0.8rem 1rem 5.4rem 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #numbers {
+        margin: 2.4rem 5.2rem 2.4rem 2.2rem;
+    }
+
+    .team {
+        /* size of team icon */
+        height: 7rem;
+        width: 7rem;
+    }
+
+    #lanesFinishLineContainer {
+        /* height adjusted for the red part in the track and margin set accordingly */
+        margin: 0.8rem 1rem 5.4rem 1rem;
+    }
+}
+
+@media (max-width: 350px) {
+    #numbers {
+        margin: 2.6rem 4.6rem 2.6rem 2.2rem;
+    }
+
+    .team {
+        /* size of team icon */
+        height: 8rem;
+        width: 8rem;
+    }
+
+    #lanesFinishLineContainer {
+        /* height adjusted for the red part in the track and margin set accordingly */
+        margin: 1.2rem 1rem 6.6rem 1rem;
+    }
+
+    #finish-line {
+        margin-right: 5rem;
+    }
 }

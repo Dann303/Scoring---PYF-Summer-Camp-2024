@@ -1,8 +1,7 @@
 const socket = io()
 
 const animationDuration = 1000
-const boardWidth = 1140
-// const boardWidth = 950
+let boardWidth = document.getElementById('lanes').clientWidth - 38
 
 // Variables
 $teamPoints = [
@@ -25,7 +24,7 @@ socket.on('startPoints', () => {
 
 const updateTeamPoints = (teamNumberChanged, newPoints) => {
   // update the score on the scoreboard (left sidebar)
-  $teamPoints[teamNumberChanged-1].textContent = newPoints
+  $teamPoints[teamNumberChanged - 1].textContent = newPoints
 
   // get the icon of the team, move it to match its new points
   const team = document.getElementById('team-' + teamNumberChanged)
@@ -59,3 +58,38 @@ const getPointsObjectFromSpreadsheet = async () => {
     updateTeamPoints(teamNumber, teamPoints)
   }
 }
+
+const calculateWidth = () => {
+  const viewportWidth = window.outerWidth
+  let offset = 38
+  if (viewportWidth <= 800) {
+    offset = 28
+  }
+
+  const trackField = document.getElementById('lanes').clientWidth - offset
+  boardWidth = trackField
+}
+
+const calculateHTMLFontSize = () => {
+  const viewportWidth = window.outerWidth
+  console.log(viewportWidth)
+  let calculatedFontSize
+  if (viewportWidth <= 600) {
+    calculatedFontSize = 4 + 3 * (viewportWidth / 200)
+  } else if (viewportWidth <= 900) {
+    calculatedFontSize = 4 + 2.5 * (viewportWidth / 200)
+  } else if (viewportWidth <= 1200) {
+    calculatedFontSize = 4 + 2 * (viewportWidth / 200)
+  }
+  if (calculatedFontSize) {
+    document.documentElement.style.fontSize = calculatedFontSize + 'px';
+  }
+}
+
+calculateHTMLFontSize()
+calculateWidth()
+
+addEventListener('resize', () => {
+  calculateHTMLFontSize()
+  calculateWidth()
+})
