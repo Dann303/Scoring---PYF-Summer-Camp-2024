@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- <link rel="stylesheet" href="css/styles.min.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="numbers">
+            <div>0</div>
+            <div>10</div>
+            <div>20</div>
+            <div>30</div>
+            <div>40</div>
+            <div>50</div>
+            <div>60</div>
+            <div>70</div>
+            <div>80</div>
+            <div>90</div>
+            <div>100</div>
+        </div>
+        <div style="display: flex;">
+            <div id="lanes">
+                <div class="team" id="team-1"></div>
+                <div class="team" id="team-2"></div>
+                <div class="team" id="team-3"></div>
+                <div class="team" id="team-4"></div>
+                <div class="team" id="team-5"></div>
+                <div class="team" id="team-6"></div>    
+            </div>
+            <div id="finish-line"></div>                
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
